@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday! ✨</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating { animation: float 3s ease-in-out infinite; }
+    </style>
+</head>
+<body class="bg-pink-50 flex items-center justify-center min-h-screen p-4">
+
+    <div class="max-w-md w-full bg-white rounded-3xl shadow-xl overflow-hidden border-4 border-white">
+        <div class="bg-pink-200 h-32 flex items-center justify-center text-6xl floating">
+            🎂
+        </div>
+
+        <div class="p-8 text-center">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">Happy Birthday! 🎈</h1>
+            <p class="text-pink-500 font-medium mb-6 uppercase tracking-widest text-sm">To a Cute Friend of mine</p>
+            
+            <div class="text-gray-600 leading-relaxed text-left space-y-4">
+                <p>Yo Dipa,</p>
+                <p>
+                    Happy Birthday! I know I already bought you a real gift, but then I thought—isn't also better for me to make letter for you too? (Don’t answer that). May your day be filled with zero lag, 100% battery life, and enough Matcha to regret it tomorrow! 🎈
+                </p>
+                <p>
+                    I hope this year is as bright, chaotic, and wonderful as you are. Keep shining!
+                </p>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-pink-100">
+                <p class="text-gray-400 text-xs italic mb-1">From a dear friend of yours,</p>
+                <p class="text-xl font-bold text-pink-400">Mitsuko ✨</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            // This creates a burst from the left and right sides
+            var duration = 3 * 1000;
+            var end = Date.now() + duration;
+
+            (function frame() {
+                // Left side burst
+                confetti({
+                    particleCount: 2,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: ['#FFC0CB', '#98FB98', '#FFFFFF'] // Pink, Matcha Green, White
+                });
+                // Right side burst
+                confetti({
+                    particleCount: 2,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: ['#FFC0CB', '#98FB98', '#FFFFFF']
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+        };
+    </script>
+</body>
+</html>
